@@ -26,5 +26,6 @@ class WelcomeEventToUser
     {
         //dd($event->user->id);
         User::find($event->user->id)->update(['status'=>1]);
+        Mail::to($event->user->email)->send(new Email($event->user));
     }
 }
