@@ -14,9 +14,12 @@ class CreatePosts extends Notification
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    private $post_id;
+    private $created_by;
+    public function __construct($post_id,$created_by)
     {
-        //
+        $this->post_id= $post_id;
+        $this->created_by= $created_by;
     }
 
     /**
@@ -48,7 +51,8 @@ class CreatePosts extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            //
+            'post_id'=>$this->post_id,
+            'created_by'=>$this->created_by
         ];
     }
 }
