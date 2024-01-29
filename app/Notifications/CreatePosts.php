@@ -16,10 +16,12 @@ class CreatePosts extends Notification
      */
     private $post_id;
     private $created_by;
-    public function __construct($post_id,$created_by)
+    private $title;
+    public function __construct($post_id,$created_by,$title)
     {
         $this->post_id= $post_id;
         $this->created_by= $created_by;
+        $this->title= $title;
     }
 
     /**
@@ -52,7 +54,8 @@ class CreatePosts extends Notification
     {
         return [
             'post_id'=>$this->post_id,
-            'created_by'=>$this->created_by
+            'created_by'=>$this->created_by,
+            'title'=>$this->title
         ];
     }
 }
