@@ -38,5 +38,5 @@ Route::get('/send',function(){
 });
 
 Route::resource('posts',PostController::class);
-
+Route::get('/markAsRead',[PostController::class,'markAsRead'])->name('markAsRead');
 require __DIR__.'/auth.php';

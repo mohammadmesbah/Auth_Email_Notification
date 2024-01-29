@@ -21,7 +21,7 @@ class CreatePosts extends Notification
     {
         $this->post_id= $post_id;
         $this->created_by= $created_by;
-        $this->title= $title;
+        $this->title= $title;   
     }
 
     /**

@@ -98,12 +98,13 @@ font-size: 13px;
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-12">
 <span>Notifications ({{Auth::user()->unreadnotifications()->count()}})</span>
-<a href="" class="float-right text-light">Mark all as read</a>
+<a href="{{route('markAsRead')}}" class="float-right text-light">Mark all as read</a>
 </div>
 </li>
 @foreach (Auth::User()->unreadNotifications as $notification)
-    
+ 
 <li class="notification-box">
+<a href="{{route('posts.show',$notification->data['post_id'])}}">
 <div class="row">
 <div class="col-lg-3 col-sm-3 col-3 text-center">
 <img src="/demo/man-profile.jpg" class="w-50 rounded-circle">
@@ -116,7 +117,10 @@ font-size: 13px;
 <small class="text-warning">{{$notification->created_at}}</small>
 </div>
 </div>
+</a>
 </li>
+
+
 @endforeach
 
 <li class="footer bg-dark text-center">
