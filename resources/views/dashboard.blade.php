@@ -97,7 +97,7 @@ font-size: 13px;
 <li class="head text-light bg-dark">
 <div class="row">
 <div class="col-lg-12 col-sm-12 col-12">
-<span>Notifications ({{Auth::user()->unreadnotifications()->count()}})</span>
+<span>Notifications ({{Auth::user()->unreadNotifications()->count()}})</span>
 <a href="{{route('markAsRead')}}" class="float-right text-light">Mark all as read</a>
 </div>
 </li>
