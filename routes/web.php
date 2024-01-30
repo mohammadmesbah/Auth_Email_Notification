@@ -37,6 +37,8 @@ Route::get('/send',function(){
     return 'Email is send';
 });
 
+Route::get('/posting',[PostController::class,'index'])->middleware('check_user');
+
 Route::resource('posts',PostController::class);
 Route::get('/markAsRead',[PostController::class,'markAsRead'])->name('markAsRead');
 require __DIR__.'/auth.php';
