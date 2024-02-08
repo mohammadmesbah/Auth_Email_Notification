@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\Email;
@@ -41,4 +42,6 @@ Route::get('/posting',[PostController::class,'index'])->middleware('check_user')
 
 Route::resource('posts',PostController::class);
 Route::get('/markAsRead',[PostController::class,'markAsRead'])->name('markAsRead');
+
+Route::get('phone',[PhoneController::class,'index']);
 require __DIR__.'/auth.php';

@@ -25,6 +25,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'status',
     ];
 
+    public function phone(){
+        return $this->hasOne(Phone::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
