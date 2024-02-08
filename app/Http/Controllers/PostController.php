@@ -20,6 +20,11 @@ class PostController extends Controller
     {
         return view('welcome');
     }
+    public function getComment()
+    {
+        $post= Post::find(2);
+        return $post->comments;
+    }
 
     /**
      * Show the form for creating a new resource.

@@ -44,4 +44,5 @@ Route::resource('posts',PostController::class);
 Route::get('/markAsRead',[PostController::class,'markAsRead'])->name('markAsRead');
 
 Route::get('phone',[PhoneController::class,'index']);
+Route::get('comment',[PostController::class,'getComment']);
 require __DIR__.'/auth.php';
