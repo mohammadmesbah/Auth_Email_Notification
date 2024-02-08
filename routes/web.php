@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Mail\Email;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 
@@ -45,4 +47,5 @@ Route::get('/markAsRead',[PostController::class,'markAsRead'])->name('markAsRead
 
 Route::get('phone',[PhoneController::class,'index']);
 Route::get('comment',[PostController::class,'getComment']);
+Route::get('getcomment',[CommentController::class,'index']);
 require __DIR__.'/auth.php';

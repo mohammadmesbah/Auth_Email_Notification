@@ -12,7 +12,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comment= Comment::find(1);
+        return $comment->post;
     }
 
     /**
