@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,5 +14,18 @@ class UserController extends Controller
         return $user->roles; */
         $role= Role::find(1);
         return $role->users;
+    }
+
+    public function accessor($id){
+        $user= User::find($id);
+        return $user->name;
+    }
+    public function store(){
+        User::create([
+            'name'=> 'aya',
+            'email'=> 'aya@gmail.com',
+            'password'=> Hash::make('12345678')
+        ]);
+        return response('ok');
     }
 }
