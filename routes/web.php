@@ -54,4 +54,5 @@ Route::get('role',[UserController::class,'index']);
 Route::get('user/{id}',[UserController::class,'accessor']);
 Route::get('create',[UserController::class,'store']);
 
+Route::get('trait',[UserController::class,'retrieve']);
 require __DIR__.'/auth.php';
