@@ -12,7 +12,8 @@ class UserController extends Controller
 {
     use TestTrait;
     public function retrieve(){
-        return $this->getData(new User());
+        //return $this->getData(new User());
+        return $this->getData(User::class);
     }
     public function index(){
         /* $user= User::find(1);

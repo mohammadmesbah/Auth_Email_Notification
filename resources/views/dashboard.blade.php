@@ -77,7 +77,7 @@ font-size: 13px;
 <div class="row">
 <div class="col-lg-10 col-sm-10 col-12 offset-lg-1 offset-sm-1">
 <nav class="navbar navbar-expand-lg bg-info rounded">
-<a class="navbar-brand text-light" href="#">{{Auth::user()->name}}</a>
+<a class="navbar-brand text-light" href="#">{{username()}}</a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 <span class="navbar-toggler-icon"></span>
 </button>

@@ -6,6 +6,7 @@ namespace App\Models;
 
 use App\Traits\TestTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,6 +17,10 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
     use TestTrait;
+    public function scopeActive(Builder $query): void
+    {
+        $query->where('name', 'AYA');
+    }
     /**
      * The attributes that are mass assignable.
      *
