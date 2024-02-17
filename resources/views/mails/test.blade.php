@@ -1,5 +1,5 @@
 <x-mail::message>
-# Hi {{$user->name}}
+# Hi {{$user}}
 
 Hello From Authentication Community Please Confirm your Login
 
@@ -8,5 +8,5 @@ Confirm
 </x-mail::button>
 
 Thanks,<br>
-{{ $user->name}}
+{{ $user}}
 </x-mail::message>

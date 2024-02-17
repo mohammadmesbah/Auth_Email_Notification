@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ActiveUserStatus;
+use App\Jobs\SendUserMail;
+use App\Mail\Email;
 use App\Models\Role;
 use App\Models\User;
 use App\Traits\TestTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -25,6 +29,20 @@ class UserController extends Controller
     public function accessor($id){
         $user= User::find($id);
         return $user->name;
+    }
+
+    public function jobs(){
+        $user_id= User::where('status','0')->pluck('id');
+        ActiveUserStatus::dispatch($user_id)->delay(now()->second(20));
+        return 'جاري تنفيذ طلبك';
+    }
+
+    public function sendMail(){
+        $data= ['engmohammadmesbah1@gmail.com','engmohammadmesbah1@gmail.com',
+        'engmohammadmesbah1@gmail.com','engmohammadmesbah1@gmail.com'];
+        
+        SendUserMail::dispatch($data);
+        return 'جارى إرسال الإيميلات';
     }
     public function store(){
         User::create([

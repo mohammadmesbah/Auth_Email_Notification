@@ -9,6 +9,7 @@ use App\Mail\Email;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,4 +56,11 @@ Route::get('user/{id}',[UserController::class,'accessor']);
 Route::get('create',[UserController::class,'store']);
 
 Route::get('trait',[UserController::class,'retrieve']);
+
+Route::get('users',[UserController::class,'jobs']);
+Route::get('sendmail',[UserController::class,'sendMail']);
+
+/* Route::get('file',function(){
+    Storage::disk('local')->put('test.txt', 'welcome to first file');
+}); */
 require __DIR__.'/auth.php';
