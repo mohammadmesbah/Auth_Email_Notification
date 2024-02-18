@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PhoneController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UploadImage;
 use App\Http\Controllers\UserController;
 use App\Mail\Email;
 use App\Models\Comment;
@@ -60,7 +61,16 @@ Route::get('trait',[UserController::class,'retrieve']);
 Route::get('users',[UserController::class,'jobs']);
 Route::get('sendmail',[UserController::class,'sendMail']);
 
-/* Route::get('file',function(){
-    Storage::disk('local')->put('test.txt', 'welcome to first file');
-}); */
+Route::get('file',function(){
+    //Storage::disk('local')->put('test.txt', 'welcome to first file');
+    //Storage::disk('public')->put('test.txt', 'welcome to first file');
+      Storage::disk('mohammad')->put('test.txt', 'welcome to first file');
+
+    return 'OK';
+});
+
+Route::get('create',[UploadImage::class,'create']);
+Route::post('store',[UploadImage::class,'store'])->name('photo.save');
+Route::get('show',[UploadImage::class,'show']);
+
 require __DIR__.'/auth.php';
